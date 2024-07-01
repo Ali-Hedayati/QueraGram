@@ -1,17 +1,15 @@
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import auth from "../../auth";
-import { LoginFormData } from "../../types/types";
+import { SignupFormData } from "../../types/types";
 
 export default function LoginForm() {
-  const { register, handleSubmit } = useForm<LoginFormData>();
+  const { register, handleSubmit } = useForm<SignupFormData>();
   const navigate = useNavigate();
 
-
-  async function onSubmit(data: LoginFormData) {
+  async function onSubmit(data: SignupFormData) {
     try {
-      await auth.login(data);
+      await auth.signup(data);
       navigate("/");
     } catch (e) {
       console.log(e);
@@ -31,6 +29,13 @@ export default function LoginForm() {
           {...register("username", { required: true })}
         />
         <input
+          type="emial"
+          id="email"
+          className="border rounded text-md py-2 px-4 w-3/4"
+          placeholder="ایمیل"
+          {...register("email", { required: true })}
+        />
+        <input
           type="password"
           id="password"
           className="border rounded text-md py-2 px-4 w-3/4"
@@ -41,12 +46,9 @@ export default function LoginForm() {
           type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none rounded px-5 py-2.5 w-1/3 text-center"
         >
-          ورود
+          ثبت نام
         </button>
       </form>
     </>
   );
-}
-{
-  /* <button onClick={onRegister}>register</button> */
 }
