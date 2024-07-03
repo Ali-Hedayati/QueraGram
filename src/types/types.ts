@@ -18,6 +18,7 @@ export interface LoginResponse {
   phone_number: number;
   access: string;
   refresh: string;
+  thumbnail: string;
 }
 
 export interface SignupResponse {
@@ -25,3 +26,13 @@ export interface SignupResponse {
   username: string;
   password: string;
 }
+
+export interface AvatarResponse {
+  avatar: string;
+}
+
+export interface PhoneFormData {
+  phone_number: number;
+}
+
+export interface ProfileLoaderData {}

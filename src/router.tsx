@@ -5,6 +5,8 @@ import Home from "./pages/home";
 import authLoader from "./pages/loaders/authLoader";
 import homeLoader from "./pages/loaders/homeLoader";
 import Signup from "./pages/signup";
+import Profile from "./pages/profile";
+import profileLoader from "./pages/loaders/profileLoader";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,11 @@ const router = createBrowserRouter([
         path: "signup",
         element: <Signup />,
         loader: authLoader,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+        loader: profileLoader,
       },
     ],
   },
